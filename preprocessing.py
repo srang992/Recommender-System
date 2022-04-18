@@ -13,11 +13,3 @@ def clean_desc(s):
     p = [word for word in s if word not in set(stopwords.words('english'))]
     sent = ' '.join(p)
     return sent
-
-
-def clean_struct_table_implicit(dataset, descCol, itemCol):
-    tfidf = TfidfVectorizer(min_df=2, max_df=0.7)
-    tfidf_vectors = tfidf.fit_transform(dataset[descCol])
-    tfidf_df = pd.DataFrame(tfidf_vectors.toarray(), columns=tfidf.get_feature_names_out(), index=dataset[itemCol])
-
-    return tfidf_df, tfidf
