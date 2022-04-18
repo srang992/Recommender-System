@@ -5,7 +5,7 @@ import pickle
 import pandas as pd
 import streamlit as st
 from streamlit import session_state as session
-from src.recommend.recommend import recommend_table
+from recommend import recommend_table
 
 
 @st.cache(persist=True, show_spinner=False, suppress_st_warning=True)
